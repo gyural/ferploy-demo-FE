@@ -2,26 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 전역 스크롤바 숨기기 */
+html {
+  scrollbar-width: none; /* Firefox */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar {
+  width: 0px; /* 스크롤바 너비를 0으로 설정하여 숨김 */
+  height: 0px; /* 가로 스크롤바도 숨기려면 height도 설정 */
 }
