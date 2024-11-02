@@ -28,16 +28,18 @@ export default function Page(): JSX.Element {
     window.location.href = `${googleAuthUrl}?${params.toString()}`;
   };
 
-  // 서버로부터 받은 code 처리 및 유저 정보 저장
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
-
+  
     if (code) {
-      console.log('first!!!')
       // 서버로 로그인 코드 전송 후 유저 정보 받아오기
-      const data = getGoogleUserData(code)
-      console.log(data)
+      const data = getGoogleUserData(code);
+  
+      // URL에서 code 파라미터 제거
+      const newUrlParams = new URLSearchParams(window.location.search);
+      newUrlParams.delete('code');
+      window.history.replaceState({}, document.title, window.location.pathname + '?' + newUrlParams.toString());
     }
   }, [setUser]);
 
