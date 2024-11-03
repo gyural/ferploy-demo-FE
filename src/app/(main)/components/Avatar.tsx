@@ -17,7 +17,7 @@ const pastelColors = [
   '#D1FFC1', // Pastel Lime
 ];
 
-export default function Avatar({ src, alt = 'Avatar', size = 40 }: AvatarProps) {
+export default function Avatar({ src, alt = 'Avatar', size = 45 }: AvatarProps) {
   // Randomly select a pastel color
   const randomColor = pastelColors[Math.floor(Math.random() * pastelColors.length)];
 
