@@ -30,7 +30,7 @@ interface BottomNavProps {
 
 export default function BottomNav({ activeTab }: BottomNavProps) {
   return (
-    <nav className='bg-white border-t border-gray-200'>
+    <nav className='fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-10 w-full'>
       <div className='flex justify-between items-center p-4'>
         {tabs.map((tab, index) => (
           <Link key={index} href={tab.href} className='flex flex-col items-center'>
