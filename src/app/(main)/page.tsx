@@ -1,9 +1,11 @@
+'use client'
 import Button from '@/components/Button';
 import Image from 'next/image';
 import React from 'react';
 import mainImage from '@/public/images/ferploy_title.png';
 import Mycard from './components/Mycard';
 import BottomNav from '@/components/BottomNav';
+import BottomSheet from './components/BottomSheet';
 
 export default function Page() {
   // Mycard 컴포넌트에 전달할 mockup data
@@ -33,7 +35,7 @@ export default function Page() {
   ];
 
   return (
-    <section className='min-h-screen flex flex-col'>
+    <section className='min-h-screen max-h-screen flex flex-col pt-[21px] px-[19px] pb-[20px] w-full'>
       <div className='relative w-[20%] h-[30px] mb-[25px]'>
         <Image 
           src={mainImage} 
@@ -65,8 +67,8 @@ export default function Page() {
         ))}
       </section>
       
-      <section>
-        
+      <section className='h-[20vh'>
+        <BottomSheet/>
       </section>
       {/* BottomNav를 화면 맨 아래에 위치 */}
       <BottomNav activeTab={0} />

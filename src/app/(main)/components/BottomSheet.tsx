@@ -1,46 +1,37 @@
 "use client";
 import React, { useEffect } from "react";
 import { X } from "@phosphor-icons/react/dist/ssr";
-interface SelectMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
-  items: string[]; // Assuming items are strings; adjust type as necessary
-  onSelect: (item: string) => void; // Assuming the selected item is a string; adjust type as necessary
-}
+import NameCardList from "./NameCardList";
 
-const SelectMenu: React.FC<SelectMenuProps> = ({ isOpen, onClose, items, onSelect }) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"; // Prevent background scrolling when menu is open
-    } else {
-      document.body.style.overflow = ""; // Restore scrolling when menu is closed
-    }
 
-    return () => {
-      document.body.style.overflow = ""; // Cleanup on unmount
-    };
-  }, [isOpen]);
+const BottomSheet: React.FC = ({ }) => {
 
   return (
-    <div
-      className={`fixed inset-0 z-50 flex items-end bg-black bg-opacity-50 transition-opacity ${
-        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-      }`}
-    >
-      <div
-        className={`w-full p-4 bg-white rounded-t-lg transition-transform duration-300 transform ${
-          isOpen ? "translate-y-0" : "translate-y-full"
-        }`}
-      >
-        <div className='flex justify-end'>
-          <X onClick={onClose} className='w-5 h-5 cursor-pointer text-DG' />
+    <div className='p-5 pb-0 h-[34vh] overflow-auto' 
+          style={{
+            boxShadow: '0px -4px 30px 0px rgba(0, 0, 0, 0.10)',
+            borderRadius: '30px 30px 0px 0px'
+          }}
+        >
+          <div className='flex justify-start gap-[18px] mb-2'>
+            <p className='text-black text-[20px] font-bold'>명함 목록</p>
+            <p className='text-[#898989] text-[20px] font-normal'>카테고리 목록</p>
+          </div>
+
+          <p className='mb-4'>200명</p>
+
+          <input 
+          type="text" placeholder='이름 검색'
+          className='w-full bg-[#F5F5F5] text-[12px] text-[#AFAFAF] mb-5
+          font-medium p-[9px] rounded-[5px] border-[#D9D9D9] border-[1px]'
+          />
+          {/* bottomSheet */}
+          <div className='w-full overflow-y-auto'>
+            <NameCardList></NameCardList>
+          </div>
         </div>
-        <div className='flex flex-col gap-2'>
-          
-        </div>
-      </div>
-    </div>
   );
 };
 
-export default SelectMenu;
+export default BottomSheet;
+
