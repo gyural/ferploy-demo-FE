@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState } from 'react';
-import Avatar from './Avatar';
-import Tag from './Tag';
+import Avatar from '@/app/(main)/components/Avatar';
+import Tag from '@/app/(main)/components/Tag';
 import { NameCard } from './NameCardList';
 import { Check } from '@phosphor-icons/react/dist/ssr';
 
@@ -32,13 +32,13 @@ export default function NameCardOne({ namecard }: NameCardOneProps) {
       {/* checkbox */}
       <div
         onClick={toggleCheck}
-        className={`w-[22px] h-[22px] flex items-center justify-center cursor-pointer rounded-[5px] ${
-          checked ? 'bg-[#465EFE]' : 'border border-[#7B7B7B] bg-transparent'
+        className={`w-[22px] h-[22px] flex items-center justify-center cursor-pointer rounded ${
+          checked ? 'bg-blue-500' : 'border border-gray-300 bg-transparent'
         }`}
       >
         {checked ? 
           (<Check size={16} weight='bold' color='white' />) : (
-          <Check size={16} weight='bold' color='#7B7B7B' />
+          <Check size={16} weight='bold' color='gray' />
           )}
     </div>
       <div className="flex gap-[15px] justify-start items-center">

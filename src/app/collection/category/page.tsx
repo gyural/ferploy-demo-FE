@@ -5,10 +5,9 @@ import mainImage from '@/public/images/ferploy_title.png';
 import BottomNav from '@/components/BottomNav';
 import { DotsThreeVertical } from '@phosphor-icons/react/dist/ssr';
 import SearchInput from '@/components/SearchInput';
+import GroupContainer from './components/GroupContainer';
 
 export default function Page() {
-  // Mycard 컴포넌트에 전달할 mockup data
-  
   return (
     <section className='min-h-screen flex flex-col pt-[21px] px-[19px] pb-[20px] w-full'>
       {/* HEADER */}
@@ -22,15 +21,19 @@ export default function Page() {
       </div>
         
       <div className='flex justify-start gap-[18px] mb-[9px] items-center'>
-        <p className='text-[#898989] text-[20px] font-bold'>내 명함</p>
-        <p className='text-black text-[20px] font-bold'>명함등록하기</p>
+        <p className='text-[#898989] text-[20px] font-bold'>명함 목록</p>
+        <p className='text-black text-[20px] font-bold'>카테고리별 목록</p>
         <div className='ml-auto cursor-pointer'>
           <DotsThreeVertical size={32} />
         </div>
       </div>
       
+      <p className='mb-4'>200명</p>
+      <SearchInput placeholder='이름 검색' />
+
       {/* scrollable content */}
       <div className='flex-grow overflow-auto'>
+        <GroupContainer />
       </div>
     
       {/* BottomNav를 화면 맨 아래에 고정 */}
