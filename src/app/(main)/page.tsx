@@ -5,6 +5,7 @@ import mainImage from '@/public/images/ferploy_title.png';
 import Mycard from './components/Mycard';
 import BottomNav from '@/components/BottomNav';
 import BottomSheet from './components/BottomSheet';
+import Link from 'next/link';
 
 export default function Page() {
   // Mycard 컴포넌트에 전달할 mockup data
@@ -46,7 +47,12 @@ export default function Page() {
         
       <div className='flex justify-start gap-[18px] mb-[27px]'>
         <p className='text-black text-[20px] font-bold'>내명함</p>
-        <p className='text-[#898989] text-[20px] font-bold'>명함 등록하기</p>
+        <Link
+          href='/namecard/create/first'
+        >
+          <p className='text-[#898989] text-[20px] font-bold'>명함 등록하기</p>
+        
+        </Link>
       </div>
       
       <section className='flex gap-5 overflow-auto mb-3'>

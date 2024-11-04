@@ -1,3 +1,4 @@
+'use client'
 import Button from '@/components/Button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -5,7 +6,7 @@ import React from 'react';
 import mainImage from '@/public/images/ferploy_title.png';
 import sally from '@/public/images/sally.png';
 import googleLogo from '@/public/images/google_logo.png';
-
+import { handleGoogleLogin } from './service/googleAuth';
 export default function Page() {
   
   return (
@@ -34,13 +35,12 @@ export default function Page() {
       </div>
 
       <div className='w-full flex flex-col gap-4'>
-        <Link href={'/login/dashboard'}>
-          <Button 
-            className='w-full bg-gray-50 text-black'
-            text='Google로 시작하기'
-            logo={googleLogo.src}
-          />
-        </Link>
+        <Button 
+          className='w-full bg-gray-50 text-black'
+          text='Google로 시작하기'
+          logo={googleLogo.src}
+          onClick={()=>{handleGoogleLogin()}}
+        />
       </div>
     </section>
   );

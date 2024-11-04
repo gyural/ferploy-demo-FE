@@ -19,9 +19,9 @@ interface Tab {
 
 const tabs: Tab[] = [
   { href: '/', label: '메인', iconGrey: tab1_grey, iconBlue: tab1_blue },
-  { href: '/namecard', label: '명함', iconGrey: tab2_grey, iconBlue: tab2_blue },
+  { href: '/namecard/create/first', label: '명함', iconGrey: tab2_grey, iconBlue: tab2_blue },
   { href: '/collection', label: '명함모아보기', iconGrey: tab3_grey, iconBlue: tab3_blue },
-  { href: '/tab4', label: '탭 4', iconGrey: tab4_grey, iconBlue: tab4_blue },
+  { href: '/마이', label: '마이', iconGrey: tab4_grey, iconBlue: tab4_blue },
 ];
 
 interface BottomNavProps {
