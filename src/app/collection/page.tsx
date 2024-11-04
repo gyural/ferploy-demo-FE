@@ -6,6 +6,7 @@ import BottomNav from '@/components/BottomNav';
 import { DotsThreeVertical } from '@phosphor-icons/react/dist/ssr';
 import NameCardList from './components/NameCardList';
 import SearchInput from '@/components/SearchInput';
+import Link from 'next/link';
 
 export default function Page() {
   // Mycard 컴포넌트에 전달할 mockup data
@@ -23,7 +24,9 @@ export default function Page() {
         
       <div className='flex justify-start gap-[18px] mb-[9px] items-center'>
         <p className='text-black text-[20px] font-bold'>명함 목록</p>
-        <p className='text-[#898989] text-[20px] font-bold'>카테고리별 목록</p>
+        <Link href='/collection/category'>
+          <p className='text-[#898989] text-[20px] font-bold'>카테고리별 목록</p>
+        </Link>
         <div className='ml-auto cursor-pointer'> {/* 아이콘을 오른쪽으로 이동시키기 위해 ml-auto 사용 */}
           <DotsThreeVertical size={32} />
         </div>

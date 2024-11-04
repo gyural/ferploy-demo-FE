@@ -4,7 +4,7 @@ import React from 'react';
 import mainImage from '@/public/images/ferploy_title.png';
 import BottomNav from '@/components/BottomNav';
 import { DotsThreeVertical } from '@phosphor-icons/react/dist/ssr';
-import SearchInput from '@/components/SearchInput';
+import Link from 'next/link';
 
 export default function Page() {
   // Mycard 컴포넌트에 전달할 mockup data
@@ -22,8 +22,10 @@ export default function Page() {
       </div>
         
       <div className='flex justify-start gap-[18px] mb-[9px] items-center'>
-        <p className='text-[#898989] text-[20px] font-bold'>내 명함</p>
-        <p className='text-black text-[20px] font-bold'>명함등록하기</p>
+          <p className='text-black text-[20px] font-bold'>내 명함</p>
+        <Link href='/namecard/create/first'>
+          <p className=' text-[#898989] text-[20px] font-bold'>명함등록하기</p>
+        </Link>
         <div className='ml-auto cursor-pointer'>
           <DotsThreeVertical size={32} />
         </div>

@@ -6,6 +6,7 @@ import BottomNav from '@/components/BottomNav';
 import { DotsThreeVertical } from '@phosphor-icons/react/dist/ssr';
 import SearchInput from '@/components/SearchInput';
 import GroupContainer from './components/GroupContainer';
+import Link from 'next/link';
 
 export default function Page() {
   return (
@@ -21,7 +22,9 @@ export default function Page() {
       </div>
         
       <div className='flex justify-start gap-[18px] mb-[9px] items-center'>
-        <p className='text-[#898989] text-[20px] font-bold'>명함 목록</p>
+        <Link href={'/collection'}>
+          <p className='text-[#898989] text-[20px] font-bold'>명함 목록</p>
+        </Link>
         <p className='text-black text-[20px] font-bold'>카테고리별 목록</p>
         <div className='ml-auto cursor-pointer'>
           <DotsThreeVertical size={32} />
