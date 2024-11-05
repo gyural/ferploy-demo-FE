@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import FormInput from './FormInput'; // Adjust the import path as needed
 
@@ -10,30 +10,39 @@ interface FormData {
   email: string;
   location: string;
   date: string;
-  
-
+  memo: string;
 }
 
-interface NameCardFormProps{
-  onOpen: () => void
-} 
-export default function NameCardForm({onOpen}: NameCardFormProps) {
+interface NameCardFormProps {
+  onOpen: () => void;
+  defaultValues?: FormData; // defaultValues prop to receive initial form values
+}
+
+export default function NameCardForm({ onOpen, defaultValues }: NameCardFormProps) {
   const { register, handleSubmit, reset } = useForm<FormData>({
-    defaultValues: {
+    defaultValues: defaultValues || {
       name: "",
       companyAndPosition: "",
       mobile: "",
       email: "",
       location: "",
       date: "",
+      memo: "",
     },
   });
 
+  // Effect to reset the form when defaultValues changes
+  useEffect(() => {
+    if (defaultValues) {
+      reset(defaultValues);
+    }
+  }, [defaultValues, reset]);
+
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
-    // Perform your submission logic here, e.g., send data to an API\
-    onOpen()
-    reset(); // Reset form after submission
+    // Perform your submission logic here, e.g., send data to an API
+    onOpen();
+    reset(data); // Reset form to the submitted data
   };
 
   return (
@@ -45,11 +54,12 @@ export default function NameCardForm({onOpen}: NameCardFormProps) {
         <FormInput label={'번호'} register={register('mobile')} />
         <FormInput label={'이메일'} register={register('email')} />
         <FormInput label={'저장된 장소'} register={register('location')} />
-        <FormInput label={'메모 내용'} register={register('date')} />
+        <FormInput label={'메모 내용'} register={register('memo')} />
         <FormInput label={'저장 날짜'} register={register('date')} />
 
         <button 
-          type="submit" className="inline-block mt-4 w-full py-4 bg-[#465EFE] text-white rounded-[10px]">
+          onClick={onOpen}
+          className="inline-block mt-4 w-full py-4 bg-[#465EFE] text-white rounded-[10px]">
           저장하기
         </button>
       </form>

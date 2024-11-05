@@ -74,11 +74,11 @@ export default function BottomSheet({ isOpen, onClose }: BottomSheetProps) {
           <Image src={thumbnail} alt="썸네일" />
         </div>
 
-        <h2 className="text-lg font-semibold mb-4 text-center">김미나님에게 반가움을 표시해 보세요.</h2>
+        <h2 className="text-lg font-semibold mb-4 text-center">홍길동님에게 반가움을 표시해 보세요.</h2>
         
           <textarea
             className='text-center py-[24px] px-[23px] bg-[#FDFDFD] rounded-[8px] border border-[#DFDFDF] text-[#707277] text-[14px] font-medium mb-[18px] w-full outline-none'
-            value={`김미나 주임님, 안녕하세요?\n오늘 인사드린 앰플랩 대표 김진영입니다.\n말씀주신 마케팅 컨설팅 도움드릴 기회가 꼭 닿길 바랍니다. 먼길 고생 많으셨고, 조심히 복귀하세요!`}
+            value={`홍길동 팀장님, 안녕하세요?\n오늘 인사드린 앰플랩 대표 김진영입니다.\n말씀주신 마케팅 컨설팅 도움드릴 기회가 꼭 닿길 바랍니다. 먼길 고생 많으셨고, 조심히 복귀하세요!`}
             
           />
 

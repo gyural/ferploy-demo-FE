@@ -36,10 +36,8 @@ export default function Page() {
       <p className='mb-4'>200명</p>
       <SearchInput placeholder='이름 검색'></SearchInput>
       
-      <div className='p-5 pb-0 overflow-auto' 
+      <div className='p-5 pb-20 overflow-auto' 
         >
-          
-
           {/* bottomSheet */}
           <div className='w-full'>
             <NameCardList></NameCardList>

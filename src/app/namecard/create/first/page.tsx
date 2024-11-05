@@ -1,10 +1,9 @@
 'use client'
 import Image from 'next/image';
-import React from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import mainImage from '@/public/images/ferploy_title.png';
 import BottomNav from '@/components/BottomNav';
 import { DotsThreeVertical } from '@phosphor-icons/react/dist/ssr';
-import SearchInput from '@/components/SearchInput';
 import SelectPhotoOption from '../../components/SelectPhotoOption';
 import Link from 'next/link';
 
