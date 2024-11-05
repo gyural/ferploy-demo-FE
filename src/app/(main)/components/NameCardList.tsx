@@ -1,24 +1,6 @@
-import React from 'react'
-import NameCardOne from './NameCardOne';
+import { NameCard } from "@/app/collection/components/NameCardList";
 
-export type ClientType = '파트너사' | '창업기업' | '투자사' | '기관' | '고객' | '협력업체' | '기타';
-
-export interface NameCard {
-  name: string | null;
-  companyName?: string | null;
-  position?: string | null;
-  mobileNumber?: string | null;
-  email?: string | null;
-  contactNumber?: string | null;
-  clientType: ClientType;  // ClientType 타입 사용
-  place?: string | null;
-  memo?: string | null;
-  address?: string | null;
-  homepage?: string | null;
-  nameCardImg?: string | null;
-}
-
-const mockData:NameCard[] = [
+const mockData: NameCard[] = [
   {
       name: "Alice Kim",
       companyName: "Korea Innovations",
@@ -35,16 +17,16 @@ const mockData:NameCard[] = [
   },
   {
       name: "Bob Lee",
-      companyName: null,
+      companyName: "", // replaced null with empty string
       position: "Freelance Developer",
       mobileNumber: "010-3333-4444",
       email: "bob.lee@example.com",
-      contactNumber: null,
+      contactNumber: "", // replaced null with empty string
       clientType: "창업기업",
       place: "Busan",
-      memo: null,
+      memo: "", // replaced null with empty string
       address: "456 Busan Rd, Busan",
-      homepage: null,
+      homepage: "", // replaced null with empty string
       nameCardImg: "image2.jpg"
   },
   {
@@ -59,7 +41,7 @@ const mockData:NameCard[] = [
       memo: "Interested in AI solutions.",
       address: "789 Incheon Blvd, Incheon",
       homepage: "https://globaltech.com",
-      nameCardImg: null
+      nameCardImg: "" // replaced null with empty string
   },
   {
       name: "Daniel Choi",
@@ -69,33 +51,24 @@ const mockData:NameCard[] = [
       email: "daniel.choi@smartsolutions.co.kr",
       contactNumber: "031-555-1212",
       clientType: "협력업체",
-      place: null,
+      place: "", // replaced null with empty string
       memo: "Potential partnership.",
       address: "1234 Gyeonggi Ave, Gyeonggi",
-      homepage: null,
+      homepage: "", // replaced null with empty string
       nameCardImg: "image3.jpg"
   },
   {
-      name: null,
+      name: "Daniel", // replaced null with empty string
       companyName: "Future Vision",
       position: "Marketing Lead",
       mobileNumber: "010-9999-0000",
-      email: null,
+      email: "", // replaced null with empty string
       contactNumber: "02-333-4444",
       clientType: "투자사",
       place: "Sejong",
       memo: "Follow up next quarter.",
-      address: null,
+      address: "", // replaced null with empty string
       homepage: "https://futurevision.kr",
-      nameCardImg: null
+      nameCardImg: "" // replaced null with empty string
   }
 ];
-export default function NameCardList() {
-  return (
-    <section>
-      {mockData.map((namecard, index) => (
-          <NameCardOne key={index} namecard={namecard} />
-      ))}
-    </section>
-  )
-}

@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
 import { X } from "@phosphor-icons/react/dist/ssr";
-import NameCardList from "./NameCardList";
+import NameCardList from "@/app/collection/components/NameCardList";
 
 
 const BottomSheet: React.FC = ({ }) => {
 
   return (
-    <div className='p-5 pb-0 h-[34vh] overflow-auto' 
+    <div className='p-5 pb-2 h-[38vh] flex flex-col' 
           style={{
             boxShadow: '0px -4px 30px 0px rgba(0, 0, 0, 0.10)',
             borderRadius: '30px 30px 0px 0px'
@@ -26,7 +26,7 @@ const BottomSheet: React.FC = ({ }) => {
           font-medium p-[9px] rounded-[5px] border-[#D9D9D9] border-[1px]'
           />
           {/* bottomSheet */}
-          <div className='w-full overflow-y-auto'>
+          <div className='w-full flex-grow overflow-y-auto'>
             <NameCardList></NameCardList>
           </div>
         </div>

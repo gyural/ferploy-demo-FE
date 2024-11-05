@@ -14,7 +14,7 @@ export default function FormInput({ label, register }: FormInputProps) {
       </label>
       <input
         {...register} // Use the passed register function directly
-        className="py-[11px] px-[15px] block w-full bg-[#F2F3F5] rounded-[5px] shadow-sm focus:ring focus:ring-blue-300"
+        className="py-[11px] px-[15px] block w-full bg-[#F2F3F5] rounded-[5px] shadow-sm focus:ring focus:ring-blue-300 outline-[#465EFE]"
         type="text"
         placeholder={`Enter ${label.toLowerCase()}`}
       />
