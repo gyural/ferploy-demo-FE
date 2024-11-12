@@ -1,9 +1,15 @@
 import { create } from 'zustand';
 
-// user의 인터페이스 정의
+// User 인터페이스 정의
 export interface User {
   id: string;
   email: string;
+  name: string;
+  given_name: string;
+  family_name: string;
+  picture: string;
+  accessToken: string;
+  refreshToken: string;
 }
 
 interface AuthState {

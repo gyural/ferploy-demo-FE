@@ -1,11 +1,11 @@
 import React from 'react';
 import { UseFormRegister } from 'react-hook-form';
+import { FormData } from './NameCardForm';
 
 interface FormInputProps {
-  label: string;
-  register: ReturnType<UseFormRegister<any>>; // Adjusted to accept register function directly
+  label: string; 
+  register: ReturnType<UseFormRegister<FormData>>; // Make sure register is correctly typed
 }
-
 export default function FormInput({ label, register }: FormInputProps) {
   return (
     <div className="mb-[18px]">

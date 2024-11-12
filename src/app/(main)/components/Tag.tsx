@@ -1,6 +1,6 @@
 // Tag.tsx
+import { ClientType } from '@/app/collection/components/NameCardList';
 import React from 'react';
-import { ClientType} from './NameCardList';
 interface TagProps {
   type: ClientType;  // ClientType 타입 사용
 }

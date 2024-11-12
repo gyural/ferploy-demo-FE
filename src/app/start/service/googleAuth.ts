@@ -1,5 +1,5 @@
 const clientId: string = process.env.NEXT_PUBLIC_AUTH_GOOGLE_ID as string;
-const redirectUri: string = 'http://localhost:3000/';
+const redirectUri: string = 'http://localhost:3000';
   // Google OAuth 로그인 처리
 export const handleGoogleLogin = () => {
   const googleAuthUrl = 'https://accounts.google.com/o/oauth2/auth';

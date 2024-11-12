@@ -1,7 +1,6 @@
 'use client'
 import Button from '@/components/Button';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import mainImage from '@/public/images/ferploy_title.png';
 import sally from '@/public/images/sally.png';
