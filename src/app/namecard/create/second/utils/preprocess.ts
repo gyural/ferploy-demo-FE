@@ -2,28 +2,38 @@ import { OcrResult } from '../service/nameCardOcr';
 
 interface FormData {
   name: string;
-  companyAndPosition: string;
-  mobile: string;
+  companyName: string;
+  position: string;
+  mobileNumber: string;
   email: string;
-  location: string;
-  date: string;
+  place: string;
+  savedDate: string;
   memo: string;
+  address: string;
 }
 
 export const preprocessOcrResult = (ocrResult: OcrResult): FormData => {
+  const savedDate = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  
+  // 'DD/MM/YYYY' 형식으로 출력되는 것을 'YYYY-MM-DD'로 변환
+  const formattedDate = savedDate.split('/').reverse().join('-');
+  const formattedMobileNumber = ocrResult.mobile ? ocrResult.mobile.replace(/\./g, '-') : '';
+  
   return {
     name: ocrResult.name || '',
-    companyAndPosition: ocrResult.company && ocrResult.position 
-      ? `${ocrResult.company} / ${ocrResult.position}` 
-      : ocrResult.company 
-      ? ocrResult.company 
-      : ocrResult.position 
-      ? ocrResult.position 
-      : '',
-    mobile: ocrResult.mobile || '',
+    companyName: ocrResult.company || '',
+    position : ocrResult.position,
+    mobileNumber: formattedMobileNumber,
+    // ocrResult.mobile은 010.7163.3983 이런형식인데 .을 -로 바꿔줘
     email: ocrResult.email || '',
-    location: ocrResult.address || '',
-    date: new Date().toISOString().slice(0, 10), // 현재 날짜를 YYYY-MM-DD 형식으로
-    memo: ''
+    address: ocrResult.address || '',
+    savedDate: formattedDate,
+    memo: '',
+    place: ''
   };
 };
