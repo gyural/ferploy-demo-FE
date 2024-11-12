@@ -17,8 +17,8 @@ interface SelectedNameCardProps {
 export default function SelectedNameCard({
   bg,
   text,
-  head,
-  name_eng,
+  // head,
+  // name_eng,
   name,
   position,
   phone,

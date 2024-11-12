@@ -1,13 +1,9 @@
 'use client'
 import Image from 'next/image';
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 import mainImage from '@/public/images/ferploy_title.png';
 import BottomNav from '@/components/BottomNav';
-import { DotsThreeVertical } from '@phosphor-icons/react/dist/ssr';
 import Link from 'next/link';
-import SelectedNameCard from './second/components/SelectedNameCard';
-
-
 
 export default function Page() {
   // Mycard 컴포넌트에 전달할 mockup data

@@ -1,9 +1,9 @@
 'use client'
 import React, { useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import FormInput from './FormInput'; // Adjust the import path as needed
+import FormInput from './FormInput';
 
-interface FormData {
+export interface FormData {
   name: string;
   companyAndPosition: string;
   mobile: string;

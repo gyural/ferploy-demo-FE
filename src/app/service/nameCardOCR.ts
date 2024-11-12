@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Image, OCRResponseData } from "./types/ocrNameCardInterfaces";
 
 // API 요청할 기본 URL
 const baseURL: string = "http://localhost:8080/api";
@@ -19,7 +20,6 @@ interface NameCardResponseData {
   tel: string;
 }
 
-// OCR 요청 함수
 const OCRnameCard = async (imgList: string[], formatList: string[]): Promise<NameCardResponseData[] | false> => {
   const reqURL: string = baseURL + '/namecard';
   const reqData: NameCardRequestData[] = [];
@@ -37,9 +37,9 @@ const OCRnameCard = async (imgList: string[], formatList: string[]): Promise<Nam
 
     const { data } = res;
     if (data && data.results) {
-      const { results } = data;
+      const { results } = data as OCRResponseData; // 타입을 명시적으로 설정
       if (results.length > 0) {
-        return results.map((item: any) => parsOcrRes(item));
+        return results.map((item) => parsOcrRes(item));
       }
       return [];
     } else {
@@ -51,8 +51,7 @@ const OCRnameCard = async (imgList: string[], formatList: string[]): Promise<Nam
   }
 };
 
-// OCR 응답 데이터 파싱 함수
-const parsOcrRes = (json: any): NameCardResponseData => {
+const parsOcrRes = (json: { images: Image[] }): NameCardResponseData => {
   const { images } = json;
   const { nameCard } = images[0];
   const { result } = nameCard;
@@ -67,7 +66,7 @@ const parsOcrRes = (json: any): NameCardResponseData => {
   } = result;
 
   // 배열에서 첫 번째 항목만 추출하는 헬퍼 함수
-  const getFirstItem = (array: any[]): string => (array.length > 0 ? array[0].text : 'N/A');
+  const getFirstItem = (array: { text: string }[]): string => (array.length > 0 ? array[0].text : 'N/A');
 
   return {
     address: getFirstItem(address),
@@ -80,4 +79,4 @@ const parsOcrRes = (json: any): NameCardResponseData => {
   };
 }
 
-export { OCRnameCard, parsOcrRes };
+export {parsOcrRes, OCRnameCard}

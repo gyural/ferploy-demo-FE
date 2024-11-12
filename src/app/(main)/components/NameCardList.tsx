@@ -1,6 +1,6 @@
 import { NameCard } from "@/app/collection/components/NameCardList";
 
-const mockData: NameCard[] = [
+export const mockData: NameCard[] = [
   {
       name: "Alice Kim",
       companyName: "Korea Innovations",

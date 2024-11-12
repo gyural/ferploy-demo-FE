@@ -45,17 +45,16 @@ interface NameCard {
 interface NameCardSmallProps {
   nameCard: NameCard;
 }
-const bgcolor: string[][] = [
-  ['#7428DE', '#fff'],  // Purple background with white text
-  ['#49A2E2', '#fff'],  // Blue background with white text
-  ['#49E249', '#000'],  // Green background with black text
-  ['#FFE500', '#000']   // Yellow background with black text
-];
+// const bgcolor: string[][] = [
+//   ['#7428DE', '#fff'],  // Purple background with white text
+//   ['#49A2E2', '#fff'],  // Blue background with white text
+//   ['#49E249', '#000'],  // Green background with black text
+//   ['#FFE500', '#000']   // Yellow background with black text
+// ];
 
 export default function NameCardSmall({ nameCard }: NameCardSmallProps) {
   // Generate random indices to select a greeting and color combination
   const randomMessage = greetingMessage[Math.floor(Math.random() * greetingMessage.length)];
-  const randomColors = bgcolor[Math.floor(Math.random() * bgcolor.length)];
 
   return (
     <div

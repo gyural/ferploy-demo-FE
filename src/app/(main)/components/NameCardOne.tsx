@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Avatar from './Avatar';
 import Tag from './Tag';
-import { NameCard } from './NameCardList';
 import { Check } from '@phosphor-icons/react/dist/ssr';
+import { NameCard } from '@/app/collection/components/NameCardList';
 
 // NameCardOne에서 공통 타입인 ClientType을 정의
 

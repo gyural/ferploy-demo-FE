@@ -1,8 +1,6 @@
 "use client";
-import React, { useEffect } from "react";
-import { X } from "@phosphor-icons/react/dist/ssr";
+import React from "react";
 import NameCardList from "@/app/collection/components/NameCardList";
-
 
 const BottomSheet: React.FC = ({ }) => {
 

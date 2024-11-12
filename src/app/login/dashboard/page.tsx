@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect } from 'react';
 import { useAuthStore } from '@/app/hooks/useAuthStore';
-import { getGoogleUserData } from '@/app/service/authService';
 
 export default function Page(): JSX.Element {
   const clientId: string = process.env.NEXT_PUBLIC_AUTH_GOOGLE_ID as string;
@@ -34,7 +33,6 @@ export default function Page(): JSX.Element {
   
     if (code) {
       // 서버로 로그인 코드 전송 후 유저 정보 받아오기
-      const data = getGoogleUserData(code);
   
       // URL에서 code 파라미터 제거
       const newUrlParams = new URLSearchParams(window.location.search);

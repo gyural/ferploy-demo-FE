@@ -4,7 +4,7 @@ import React from 'react';
 import mainImage from '@/public/images/ferploy_title.png';
 import BottomNav from '@/components/BottomNav';
 import { DotsThreeVertical } from '@phosphor-icons/react/dist/ssr';
-import SearchInput from '@/components/SearchInput';
+// import SearchInput from '@/components/SearchInput';
 
 export default function Page() {
   // Mycard 컴포넌트에 전달할 mockup data
