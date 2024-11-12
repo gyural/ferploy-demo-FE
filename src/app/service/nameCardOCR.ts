@@ -1,10 +1,6 @@
-import axios from "axios";
 import { Image, OCRResponseData } from "./types/ocrNameCardInterfaces";
+import axiosInstance from "../api/axiosInstance";
 
-// API 요청할 기본 URL
-const baseURL: string = "http://localhost:8080/api";
-
-// 타입 정의
 interface NameCardRequestData {
   base64Img: string;
   format: string;
@@ -21,7 +17,6 @@ interface NameCardResponseData {
 }
 
 const OCRnameCard = async (imgList: string[], formatList: string[]): Promise<NameCardResponseData[] | false> => {
-  const reqURL: string = baseURL + '/namecard';
   const reqData: NameCardRequestData[] = [];
 
   // 이미지와 포맷을 병렬적으로 순회하여 reqData에 저장
@@ -31,7 +26,7 @@ const OCRnameCard = async (imgList: string[], formatList: string[]): Promise<Nam
   });
 
   try {
-    const res = await axios.post(reqURL, JSON.stringify(reqData), {
+    const res = await axiosInstance.post('/ocr/namecard', JSON.stringify(reqData), {
       headers: { "Content-Type": "application/json" },
     });
 

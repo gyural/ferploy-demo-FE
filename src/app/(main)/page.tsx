@@ -8,14 +8,16 @@ import BottomSheet from './components/BottomSheet';
 import Link from 'next/link';
 import { getGoogleUserData } from '../service/authService';
 import { useAuthStore } from '../hooks/useAuthStore';
-import { NameCardDTO, getAllNameCards } from '../api/getNameCard';
+import { GetNameCardResponse, getAllNameCards } from '../api/getNameCard';
 
 export default function Page() {
   const setGlobalUser = useAuthStore((state) => state.setUser); // 유저 정보 설정 함수
   const globalUser = useAuthStore((state) => state.user); // 현재 유저 상태
-  const [nameCards, setNameCards] = useState<NameCardDTO[]>([]);
+  const [nameCards, setNameCards] = useState<GetNameCardResponse>({
+    myNameCardList: [],
+    nameCardList: []
+  });
   const [isLoading, setIsLoading] = useState(false);
-  console.log(nameCards)
   useEffect(() => {
     const fetchData = async () => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -55,7 +57,6 @@ export default function Page() {
       try {
         const nameCardsData = await getAllNameCards(accToken);
         setNameCards(nameCardsData); // 가져온 NameCard 데이터를 상태에 저장
-        console.log("NameCard 데이터:", nameCardsData);
       } catch (error) {
         console.error("NameCard 데이터를 가져오는 중 에러 발생:", error);
       } finally {
@@ -69,32 +70,6 @@ export default function Page() {
       fetchData(); // code가 있을 경우 Google 데이터 요청
     }
   }, [globalUser?.accessToken, setGlobalUser]); // accessToken이 변할 때마다 실행
-
-  // Mycard 컴포넌트에 전달할 mockup data
-  const myCardData = [
-    {
-      bg: '#465EFE',
-      text: '#ffffff',
-      head: '처음,\n뵙겠습니다.',
-      name_eng: 'John Doe',
-      name: '존 도',
-      position: 'Chief Executive Officer',
-      phone: '010-1234-5678',
-      email: 'john.doe@example.com',
-      address: '1234 Seoul St, Korea',
-    },
-    {
-      bg: '#eaeaea',
-      text: '#111111',
-      head: 'CTO',
-      name_eng: 'Jane Smith',
-      name: '제인 스미스',
-      position: 'Chief Technology Officer',
-      phone: '010-8765-4321',
-      email: 'jane.smith@example.com',
-      address: '4321 Busan Rd, Korea',
-    },
-  ];
 
   return (
     <section className='min-h-screen max-h-screen flex flex-col pt-[21px] px-[19px] pb-[20px] w-full'>
@@ -126,20 +101,20 @@ export default function Page() {
       </div>
       
       <section className='flex gap-5 overflow-auto mb-3'>
-        {myCardData.map((card, index) => (
-          <Mycard
-            key={index}
-            bg={card.bg}
-            text={card.text}
-            head={card.head}
-            name_eng={card.name_eng}
-            name={card.name}
-            position={card.position}
-            phone={card.phone}
-            email={card.email}
-            address={card.address}
-          />
-        ))}
+      {nameCards.myNameCardList.map((card, index) => (
+        <Mycard
+          key={index}
+          bg={card.bgColor ?? "#FFFFFF"} // Fallback to white if undefined
+          text={card.textColor ?? "#000000"} // Fallback to black if undefined
+          head={card.greetingMessage ?? ""} // Default empty string if undefined
+          name_eng={card.name ?? ""}
+          name={card.name}
+          position={card.position ?? ""}
+          phone={card.mobileNumber ?? ""}
+          email={card.email ?? ""}
+          address={card.address ?? ""}
+        />
+      ))}
       </section>
       
       <section className='h-[20vh'>

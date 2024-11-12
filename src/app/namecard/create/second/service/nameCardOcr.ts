@@ -1,5 +1,4 @@
-import axios from "axios";
-
+import axiosInstance from "@/app/api/axiosInstance";
 // Define types for the response and result
 export interface OcrResult {
   address: string;
@@ -29,17 +28,15 @@ interface NameCardResponse {
   }[];
 }
 
-const baseURL = "http://localhost:8080/";
 
 const OCRnameCard = async (imgList: string[], formatList: string[]): Promise<OcrResult[] | false> => {
-  const reqURL = `${baseURL}api/namecard`;
   const reqData = imgList.map((img, index) => ({
     base64Img: img,
     format: formatList[index],
   }));
 
   try {
-    const res = await axios.post(reqURL, reqData, {
+    const res = await axiosInstance.post('/ocr/namecard', reqData, {
       headers: { "Content-Type": "application/json" },
     });
 
