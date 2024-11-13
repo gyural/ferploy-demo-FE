@@ -16,7 +16,7 @@ export interface FormData {
   place: string;
   savedDate: string;
   memo: string;
-  clientType: ClientType;
+  clientType?: ClientType;
 }
 
 interface NameCardFormProps {

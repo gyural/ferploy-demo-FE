@@ -46,6 +46,15 @@ export default function Page() {
 
   return (
     <section className='min-h-screen max-h-screen flex flex-col pt-[21px] px-[19px] pb-[20px] w-full'>
+      {/* Loading Indicator */}
+      {isLoading && (
+          <div className='fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-50'>
+            <div className='flex flex-col items-center'>
+              <div className="loader"></div>
+              <p className="mt-4 text-lg">로딩 중입니다...</p>
+            </div>
+          </div>
+        )}
       <div className='relative w-[20%] h-[30px] mb-[25px]'>
         <Image 
           src={mainImage} 
