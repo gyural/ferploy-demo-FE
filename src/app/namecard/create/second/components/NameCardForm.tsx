@@ -4,6 +4,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import FormInput from './FormInput';
 import { createNameCard } from '@/app/api/createNameCard';
 import { useAuthStore } from '@/app/hooks/useAuthStore';
+import { ClientType } from '@/app/collection/components/NameCardList';
+import FormSelect from './FormSelect';
 
 export interface FormData {
   name: string;
@@ -14,6 +16,7 @@ export interface FormData {
   place: string;
   savedDate: string;
   memo: string;
+  clientType: ClientType;
 }
 
 interface NameCardFormProps {
@@ -35,7 +38,8 @@ export default function NameCardForm({ onOpen, defaultValues }: NameCardFormProp
       email: "",
       place: "",
       memo: "",
-      mobileNumber: ""
+      mobileNumber: "",
+      clientType: "고객",
     },
   });
 
@@ -48,6 +52,7 @@ export default function NameCardForm({ onOpen, defaultValues }: NameCardFormProp
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
+      console.log('datata', data)
       // Call the API to submit the data
       if(globalAccessToken){
         await createNameCard(globalAccessToken, data);
@@ -56,7 +61,6 @@ export default function NameCardForm({ onOpen, defaultValues }: NameCardFormProp
         // logountHandler
       }
 
-      // If the response is successful, show an alert
       alert('정상 저장되었습니다.');
       onOpen(); // Trigger any UI update or modal
       reset(data); // Reset form with the submitted data
@@ -67,7 +71,6 @@ export default function NameCardForm({ onOpen, defaultValues }: NameCardFormProp
       alert('저장 중 오류가 발생했습니다.');
     }
   };
-
   return (
     <section className="py-4">
       <h2 className="text-xl font-bold mb-4">명함 편집</h2>
@@ -80,7 +83,7 @@ export default function NameCardForm({ onOpen, defaultValues }: NameCardFormProp
         <FormInput label={'저장된 장소'} register={register('place')} />
         <FormInput label={'메모 내용'} register={register('memo')} />
         <FormInput label={'저장 날짜'} register={register('savedDate')} />
-
+        <FormSelect label="클라이언트 유형" register={register('clientType')} />
         <button 
           type='submit'
           className="inline-block mt-4 w-full py-4 bg-[#465EFE] text-white rounded-[10px]">

@@ -1,8 +1,13 @@
 "use client";
 import React from "react";
 import NameCardList from "@/app/collection/components/NameCardList";
+import { NameCardDTO } from "@/app/api/getNameCard";
 
-const BottomSheet: React.FC = ({ }) => {
+interface BottomSheetProps{
+  nameCardList: NameCardDTO[]
+}
+
+const BottomSheet: React.FC<BottomSheetProps> = ({ nameCardList }) => {
 
   return (
     <div className='p-5 pb-2 h-[38vh] flex flex-col' 
@@ -25,7 +30,7 @@ const BottomSheet: React.FC = ({ }) => {
           />
           {/* bottomSheet */}
           <div className='w-full flex-grow overflow-y-auto'>
-            <NameCardList></NameCardList>
+            <NameCardList nameCardList={nameCardList}></NameCardList>
           </div>
         </div>
   );

@@ -118,7 +118,7 @@ export default function Page() {
       </section>
       
       <section className='h-[20vh'>
-        <BottomSheet />
+        <BottomSheet nameCardList={nameCards.nameCardList} />
       </section>
       {/* BottomNav를 화면 맨 아래에 위치 */}
       <BottomNav activeTab={0} />

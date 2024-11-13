@@ -41,7 +41,7 @@ const nameCardGroupListDummy: NameCardGroup[] = [
         homepage: "https://techsolutions.com",
         nameCardImg: "https://example.com/alice.jpg",
         backgroundColor: "#7428DE",
-        textColor: "#fff",
+        textColor: "#FFFFFF",
       },
       {
         name: "Brian Lee",
@@ -56,7 +56,7 @@ const nameCardGroupListDummy: NameCardGroup[] = [
         homepage: "https://smarthub.com",
         nameCardImg: "https://example.com/brian.jpg",
         backgroundColor: "#E28449",
-        textColor: "#000",
+        textColor: "#000000",
       },
       {
         name: "Brian Lee",
@@ -71,7 +71,7 @@ const nameCardGroupListDummy: NameCardGroup[] = [
         homepage: "https://smarthub.com",
         nameCardImg: "https://example.com/brian.jpg",
         backgroundColor: "#49A2E2",
-        textColor: "#fff",
+        textColor: "#FFFFFF",
       },
       // Additional entries...
     ],
@@ -93,7 +93,7 @@ const nameCardGroupListDummy: NameCardGroup[] = [
         homepage: "https://innovatenow.com",
         nameCardImg: "https://example.com/catherine.jpg",
         backgroundColor: "#49E249",
-        textColor: "#000",
+        textColor: "#000000",
       },
       {
         name: "김나영",
@@ -108,7 +108,7 @@ const nameCardGroupListDummy: NameCardGroup[] = [
         homepage: "https://healthify.com",
         nameCardImg: "https://example.com/daniel.jpg",
         backgroundColor: "#FFE500",
-        textColor: "#000",
+        textColor: "#000000",
       },
       {
         name: "임규성",
@@ -123,7 +123,7 @@ const nameCardGroupListDummy: NameCardGroup[] = [
         homepage: "https://healthify.com",
         nameCardImg: "https://example.com/daniel.jpg",
         backgroundColor: "#49A2E2",
-        textColor: "#fff",
+        textColor: "#FFFFFF",
       },
       // Additional entries...
     ],
@@ -145,7 +145,7 @@ const nameCardGroupListDummy: NameCardGroup[] = [
         homepage: "https://innovatenow.com",
         nameCardImg: "https://example.com/catherine.jpg",
         backgroundColor: "#49E249",
-        textColor: "#000",
+        textColor: "#000000",
       },
       {
         name: "Daniel Cho",
@@ -160,7 +160,7 @@ const nameCardGroupListDummy: NameCardGroup[] = [
         homepage: "https://healthify.com",
         nameCardImg: "https://example.com/daniel.jpg",
         backgroundColor: "#FFE500",
-        textColor: "#000",
+        textColor: "#000000",
       },
       // Additional entries...
     ],

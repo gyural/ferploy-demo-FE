@@ -5,14 +5,14 @@ import Avatar from './Avatar';
 import Tag from './Tag';
 import { Check } from '@phosphor-icons/react/dist/ssr';
 import { NameCard } from '@/app/collection/components/NameCardList';
+import { NameCardDTO } from '@/app/api/getNameCard';
 
 // NameCardOne에서 공통 타입인 ClientType을 정의
 
 
-interface NameCardOneProps {
-  namecard: NameCard;
+interface NameCardOneProps{
+  namecard: NameCardDTO
 }
-
 export default function NameCardOne({ namecard }: NameCardOneProps) {
   const {
     name,
@@ -42,11 +42,14 @@ export default function NameCardOne({ namecard }: NameCardOneProps) {
           )}
     </div>
       <div className="flex gap-[15px] justify-start items-center">
-        <Avatar />
+        <Avatar 
+          bgColor={namecard.bgColor? namecard.bgColor : undefined}
+          tag={namecard.clientType? namecard.clientType : undefined}
+        />
         <div>
           <div className="flex items-center gap-2">
             <span>{name}</span>
-            <Tag type={clientType} /> {/* clientType을 Tag에 전달 */}
+            <Tag type={namecard.clientType?  namecard.clientType : undefined} /> {/* clientType을 Tag에 전달 */}
           </div>
           <p>m. {mobileNumber}</p>
         </div>

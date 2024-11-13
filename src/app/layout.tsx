@@ -27,7 +27,7 @@ import "./globals.css";
 //   openGraph: {
 //     title: "Ferploy",
 //     description: "명함 정리를 빠르고 간단하게",
-//     url: "",
+//     url: ""
 //     images: [
 //       {
 //         url: "Ferploy",
