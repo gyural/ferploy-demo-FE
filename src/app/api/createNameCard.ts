@@ -37,7 +37,7 @@ export const createNameCard = async (accessToken: string, nameCardData:FormData)
     place: nameCardData.place,
     memo: nameCardData.memo,
     mobileNumber: nameCardData.mobileNumber,
-    clientType: nameCardData.clientType,
+    clientType: nameCardData.clientType || '',
     bgColor: randomColorChip.bgColor,  // Assign random bgColor
     textColor: randomColorChip.textColor // Assign corresponding textColor
   };

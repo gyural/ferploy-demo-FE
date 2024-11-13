@@ -5,7 +5,6 @@ interface AvatarProps {
   alt?: string;
   size?: number;
   bgColor?: string;
-  tag?: string;
 }
 
 const pastelColors = [
@@ -19,7 +18,7 @@ const pastelColors = [
   '#D1FFC1', // Pastel Lime
 ];
 
-export default function Avatar({ src, alt = 'Avatar', size = 45, bgColor, tag }: AvatarProps) {
+export default function Avatar({ src, alt = 'Avatar', size = 45, bgColor }: AvatarProps) {
   // Randomly select a pastel color
   const randomColor = pastelColors[Math.floor(Math.random() * pastelColors.length)];
   console.log('bgcolor', bgColor)
