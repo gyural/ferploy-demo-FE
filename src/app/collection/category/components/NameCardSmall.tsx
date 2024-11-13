@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const greetingMessage = [
   "항상 성실하게 진행함!",
@@ -45,38 +45,45 @@ interface NameCard {
 interface NameCardSmallProps {
   nameCard: NameCard;
 }
-// const bgcolor: string[][] = [
-//   ['#7428DE', '#fff'],  // Purple background with white text
-//   ['#49A2E2', '#fff'],  // Blue background with white text
-//   ['#49E249', '#000'],  // Green background with black text
-//   ['#FFE500', '#000']   // Yellow background with black text
-// ];
+
 
 export default function NameCardSmall({ nameCard }: NameCardSmallProps) {
   // Generate random indices to select a greeting and color combination
-  const randomMessage = greetingMessage[Math.floor(Math.random() * greetingMessage.length)];
+  const [randomMessage, setRandomMessage] = useState<string>("");
+
+  useEffect(() => {
+    const message = greetingMessage[Math.floor(Math.random() * greetingMessage.length)];
+    setRandomMessage(message);
+  }, []);
 
   return (
     <div
-      className='w-full py-3.5 px-[9px] rounded-lg flex flex-col h-[400px]'
+      className='w-full py-3.5 px-[9px] rounded-lg flex flex-col h-full'
       style={{
         backgroundColor: nameCard.backgroundColor,
         color: nameCard.textColor
       }}
     >
-      <h1 className='text-2xl font-bold mb-2'>{randomMessage}</h1>
+      <h1 className='text-2xl font-bold mb-2 max-[500px]:text-lg max-[500px]:mb-1 max-[500px]:truncate'>
+        {randomMessage}
+      </h1>
       <h2 className='text-sm font-medium mb-1'>{nameCard.name || "이름 없음"}</h2>
-      <div 
+      <div
         className='h-[0.3px] w-full bg-white mb-1'
-        style={{backgroundColor: `${nameCard.textColor}`}}
+        style={{ backgroundColor: `${nameCard.textColor}` }}
       ></div>
-
-      <p className='font-medium text-xs mb-5'>
-        {nameCard.companyName || "회사 없음"} {" "} {nameCard.position || ""}
+      <p className='font-medium text-xs mb-5 max-[500px]:mb-1 max-[500px]:truncate'>
+        {nameCard.companyName || "회사 없음"} {nameCard.position || ""}
       </p>
-      <p className='font-light text-[10px] mb-[2px]'>m. {nameCard.mobileNumber || ""}</p>
-      <p className='font-light text-[10px] mb-[2px]'>e. {nameCard.email || " "}</p>
-      <p className='font-light text-[10px] mb-[2px]'>{nameCard.address || " "}</p>
+      <p className='font-light text-[10px] mb-[2px] truncate'>
+        m. {nameCard.mobileNumber || ""}
+      </p>
+      <p className='font-light text-[10px] mb-[2px] truncate'>
+        e. {nameCard.email || " "}
+      </p>
+      <p className='font-light text-[10px] mb-[2px] truncate'>
+        {nameCard.address || " "}
+      </p>
     </div>
   );
 }

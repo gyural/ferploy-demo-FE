@@ -16,7 +16,7 @@ interface NameCardGroupProps {
 
 const NameCardGroup = ({ groupName, hashtag, NameCardList }: NameCardGroupProps) => {
   return (
-    <div className='w-[40%] h-[240px] mb-[34%]'>
+    <div className="w-[40%] h-[240px] mb-[34%] max-[500px]:h-[46vw]">
       <Swiper
         effect={'cards'}
         grabCursor={true}
@@ -32,7 +32,7 @@ const NameCardGroup = ({ groupName, hashtag, NameCardList }: NameCardGroupProps)
       </Swiper>
 
       <div className='w-full mt-[20%] flex flex-col items-center justify-center'>
-        <p className='w-full text-[#3D3D3D] text-[16px] font-semibold text-center'>
+        <p className='w-full text-[#3D3D3D] text-[16px] font-semibold text-center max-[500px]:truncate'>
           {groupName}
         </p>
         

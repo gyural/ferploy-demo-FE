@@ -4,6 +4,8 @@ interface AvatarProps {
   src?: string;
   alt?: string;
   size?: number;
+  bgColor?: string;
+  tag?: string;
 }
 
 const pastelColors = [
@@ -17,17 +19,17 @@ const pastelColors = [
   '#D1FFC1', // Pastel Lime
 ];
 
-export default function Avatar({ src, alt = 'Avatar', size = 45 }: AvatarProps) {
+export default function Avatar({ src, alt = 'Avatar', size = 45, bgColor, tag }: AvatarProps) {
   // Randomly select a pastel color
   const randomColor = pastelColors[Math.floor(Math.random() * pastelColors.length)];
-
+  console.log('bgcolor', bgColor)
   return (
     <div
       className="flex items-center justify-center rounded-full overflow-hidden"
       style={{
         width: size,
         height: size,
-        backgroundColor: src ? 'transparent' : randomColor,
+        backgroundColor: bgColor ? `${bgColor}` : randomColor,
       }}
     >
       {src ? (
