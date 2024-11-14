@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:8080/api/v1";
+const baseURL = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
 
 interface nameCardReqData {
   name?: string;
